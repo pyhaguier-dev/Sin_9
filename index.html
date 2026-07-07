@@ -113,11 +113,12 @@ function sinusoidalLoop(timestamp) {
 
    // phase += 0.001;
 
-const cycleDuration = 130.7790549; // seconds for full wave cycle 7.83
+const cycleDuration = 135.428742651; // seconds for full wave cycle 7.83 432 528
 //const cycleDuration = 124.1212121; // seconds for full wave cycle 528
+//const cycleDuration = 130.7790549; // seconds for full wave cycle 7.83
 
-phase += (2.043422733 * Math.PI) / (cycleDuration * 60);
-
+//phase += (2.043422733 * Math.PI) / (cycleDuration * 60); //7.83
+phase += (2.1160741 * Math.PI) / (cycleDuration * 60); //7.83 432 528
     const wave = Math.sin(phase);
 
   
@@ -136,10 +137,10 @@ const direction =
 
 // const minInterval = 121.21212121; //528
 //const maxInterval = 1939.39393939; //528
- const minInterval = 127.71392081; //7.83
-const maxInterval = 2043.42273307; //7.83
-//const minInterval = 132.25463149; //528 432 7.83
-//const maxInterval = 1058.03705196; //528 432 7.83
+ //const minInterval = 127.71392081; //7.83
+//const maxInterval = 2043.42273307; //7.83
+const minInterval = 132.25463149; //528 432 7.83
+const maxInterval = 2116.0741039; //528 432 7.83
 
 const interval =
     maxInterval -
