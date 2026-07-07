@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sinusoidal 9</title>
+<title>Sin 9</title>
 
 <style>
  
@@ -28,26 +28,17 @@ body {
 
 
 
-#numbersContainer{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-evenly;
-    align-items:center;
+#numbers {
+       color: purple;
+   // font-size: clamp(40px, 12vw, 90px);
+font-size: clamp(24px, 8vw, 60px);
+//  margin: 15px;
+ overflow-wrap: break-word;
+    text-align: center;
+//background-color: white;
+ max-width: 98vw;
+    white-space: nowrap;
 }
-
-.numberRow{
-    white-space:nowrap;
-    text-align:center;
-    max-width:98vw;
-    font-size:clamp(24px, 8vw, 60px);
-}
-
 
 
 
@@ -57,7 +48,7 @@ body {
 
 <body>
 
-<div id="numbersContainer"></div>
+<div id="numbers"></div>
 
 
 
@@ -100,41 +91,19 @@ let colorIndex = 0;
 
 
 
-
-
 function showNumbers() {
 
-    const container =
-        document.getElementById(
-            "numbersContainer"
-        );
+    const numberElement =
+        document.getElementById("numbers");
 
-    container.innerHTML = "";
+    numberElement.innerText =
+        numbers[index];
 
-    for(let i = 0; i < 3; i++){
-
-        const row =
-            document.createElement(
-                "div"
-            );
-
-        row.className =
-            "numberRow";
-
-        row.innerText =
-            numbers[index];
-
-        row.style.color =
-            numberColors[colorIndex];
-
-        container.appendChild(
-            row
-        );
-    }
+    numberElement.style.color =
+        numberColors[colorIndex];
 
     colorIndex =
-        (colorIndex + 1)
-        %
+        (colorIndex + 1) %
         numberColors.length;
 }
 
@@ -144,8 +113,10 @@ function sinusoidalLoop(timestamp) {
 
    // phase += 0.001;
 
-const cycleDuration = 124.1212121; // seconds for full wave cycle
-phase += (1.939393939 * Math.PI) / (cycleDuration * 60);
+const cycleDuration = 130.7790549; // seconds for full wave cycle 7.83
+//const cycleDuration = 124.1212121; // seconds for full wave cycle 528
+
+phase += (2.043422733 * Math.PI) / (cycleDuration * 60);
 
     const wave = Math.sin(phase);
 
@@ -163,11 +134,10 @@ const direction =
     // Slow at zero crossing
     // Fast at wave peak
 
- 
-const minInterval = 121.21212121; //528
-const maxInterval = 1939.39393939; //528
- // const minInterval = 127.71392081; //7.83
-//const maxInterval = 2043.42273307; //7.83
+// const minInterval = 121.21212121; //528
+//const maxInterval = 1939.39393939; //528
+ const minInterval = 127.71392081; //7.83
+const maxInterval = 2043.42273307; //7.83
 //const minInterval = 132.25463149; //528 432 7.83
 //const maxInterval = 1058.03705196; //528 432 7.83
 
